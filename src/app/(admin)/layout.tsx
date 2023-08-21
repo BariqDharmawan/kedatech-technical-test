@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import '@/styles/globals.scss';
 import type { Metadata } from 'next';
+import { SWRConfig } from 'swr';
+import axios from 'axios';
 
 export const metadata: Metadata = {
 	title: 'Dashboard',
@@ -44,7 +48,18 @@ export default function DashboardLayout({
 						</Link>
 					))}
 				</aside>
-				<div className='col-span-9'>{children}</div>
+				<div className='col-span-9'>
+					<SWRConfig
+						value={{
+							revalidateOnFocus: false,
+							refreshInterval: 0,
+							fetcher: resource =>
+								axios.get(resource).then(res => res.data),
+						}}
+					>
+						{children}
+					</SWRConfig>
+				</div>
 			</body>
 		</html>
 	);
