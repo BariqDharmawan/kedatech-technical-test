@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from '@/app/components/Navbar';
 import '@/styles/globals.scss';
 import type { Metadata } from 'next';
@@ -16,8 +18,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en'>
-			<body className={inter.className}>
+		<html lang='en' className='scroll-smooth'>
+			<body className={`${inter.className}`}>
 				<Navbar />
 				{children}
 			</body>

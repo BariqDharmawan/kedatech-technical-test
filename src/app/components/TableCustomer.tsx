@@ -5,7 +5,7 @@ import { DateTime } from 'luxon';
 import { useState } from 'react';
 import CustomerDetailPackage from './CustomerDetailPackage';
 import { IUser, UserID } from '@/types/userType';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const TableCustomer = ({ users }: { users: IUser[] }) => {
 	const [isDetailCustomerOpen, setIsDetailCustomerOpen] = useState(false);

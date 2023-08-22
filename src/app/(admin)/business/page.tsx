@@ -4,7 +4,6 @@ import { getUser } from '@/helper/getServerApi';
 import { IPackageAvailable } from '@/types/packageAvailableType';
 import { IUser } from '@/types/userType';
 
-//dummy data
 const packageAvailables: IPackageAvailable[] = [
 	{
 		id: 1,
@@ -51,7 +50,7 @@ const packageAvailables: IPackageAvailable[] = [
 	{
 		id: 3,
 		label: 'Entrepreneur',
-		price: 350000,
+		price: 500000,
 		features: [
 			{
 				id: 1,

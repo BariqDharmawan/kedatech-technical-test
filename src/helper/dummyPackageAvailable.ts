@@ -1,10 +1,6 @@
-import TableCustomer from '@/app/components/TableCustomer';
-import TotalProfit from '@/app/components/TotalProfit';
-import { getUser } from '@/helper/getServerApi';
 import { IPackageAvailable } from '@/types/packageAvailableType';
-import { IUser } from '@/types/userType';
 
-const packageAvailables: IPackageAvailable[] = [
+export const packageAvailables: IPackageAvailable[] = [
 	{
 		id: 1,
 		label: 'Basic',
@@ -79,26 +75,3 @@ const packageAvailables: IPackageAvailable[] = [
 		],
 	},
 ];
-
-export default async function Page() {
-	const users: IUser[] = await getUser();
-
-	//dummy data
-	const packageBasic = packageAvailables.find(
-		packageAvailable => packageAvailable.id === 1
-	);
-
-	return (
-		<main className='py-3 px-5'>
-			<h1 className='mb-4 text-xl font-bold'>
-				List of customer using basic package
-			</h1>
-			<TableCustomer users={users.slice(0, 6) /*dummy data*/} />
-
-			<TotalProfit
-				className='mt-4'
-				profit={Number(packageBasic?.price) * users.slice(0, 6).length}
-			/>
-		</main>
-	);
-}

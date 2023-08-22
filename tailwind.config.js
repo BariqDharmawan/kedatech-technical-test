@@ -6,6 +6,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			height: {
+				'screen-min-nav': 'calc(100vh - 80px)',
+			},
 			container: {
 				center: true,
 				screens: {
