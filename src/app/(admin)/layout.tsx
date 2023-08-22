@@ -11,29 +11,30 @@ export const metadata: Metadata = {
 	description: 'Dashboard app',
 };
 
+const menus = [
+	{
+		label: 'Home',
+		href: '/dashboard',
+	},
+	{
+		label: 'Customer Basic',
+		href: '/basic',
+	},
+	{
+		label: 'Customer Business',
+		href: '/business',
+	},
+	{
+		label: 'Customer Entrepeneur',
+		href: '/entrepeneur',
+	},
+];
+
 export default function DashboardLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	const menus = [
-		{
-			label: 'Home',
-			href: '/dashboard',
-		},
-		{
-			label: 'Customer Basic',
-			href: '/basic',
-		},
-		{
-			label: 'Customer Business',
-			href: '/business',
-		},
-		{
-			label: 'Customer Entrepeneur',
-			href: '/entrepeneur',
-		},
-	];
 	return (
 		<html lang='en'>
 			<body className='grid grid-cols-12'>
