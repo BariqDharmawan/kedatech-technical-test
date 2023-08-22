@@ -43,7 +43,7 @@ export default function InputIconLeft({
 					icon={icon}
 					id={id}
 					placeholder={placeholder}
-					type={type ? 'text' : type}
+					type={type ? type : 'text'}
 					required={required}
 				/>
 			)}

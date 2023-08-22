@@ -14,7 +14,7 @@ const menus = [
 	{
 		label: 'About Us',
 		isCenterMenu: false,
-		href: '/about',
+		href: '#section-about',
 	},
 	{
 		label: 'Pricing',

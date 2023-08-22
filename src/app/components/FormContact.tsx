@@ -1,5 +1,6 @@
-import { IconPhoneCall, IconUser } from '@tabler/icons-react';
+'use client';
 
+import { IconPhoneCall, IconUser } from '@tabler/icons-react';
 import InputIconLeft from './InputIconLeft';
 
 const FormContact = () => {

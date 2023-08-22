@@ -4,7 +4,13 @@ export interface IFeaturePackage {
 }
 export interface IPackageAvailable {
 	id: number;
-	label: string;
+	title: string;
 	price: number;
 	features: FeaturePackage[];
+}
+
+export interface PaymentOptionPackage {
+	packageId: number;
+	id: number;
+	name: string;
 }

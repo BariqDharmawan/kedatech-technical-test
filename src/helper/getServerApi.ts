@@ -1,4 +1,3 @@
-import { IPackageAvailable } from '@/types/packageAvailableType';
 import axios from 'axios';
 
 export const getUser = async () => {

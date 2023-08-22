@@ -3,7 +3,7 @@ import { IPackageAvailable } from '@/types/packageAvailableType';
 export const packageAvailables: IPackageAvailable[] = [
 	{
 		id: 1,
-		label: 'Basic',
+		title: 'Basic',
 		price: 100000,
 		features: [
 			{
@@ -22,7 +22,7 @@ export const packageAvailables: IPackageAvailable[] = [
 	},
 	{
 		id: 2,
-		label: 'Business',
+		title: 'Business',
 		price: 350000,
 		features: [
 			{
@@ -45,7 +45,7 @@ export const packageAvailables: IPackageAvailable[] = [
 	},
 	{
 		id: 3,
-		label: 'Entrepreneur',
+		title: 'Entrepreneur',
 		price: 500000,
 		features: [
 			{
