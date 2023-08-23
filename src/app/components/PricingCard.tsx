@@ -6,6 +6,10 @@ import { IconCheck } from '@tabler/icons-react';
 import { Button, Card, Label, Modal, Radio, Spinner } from 'flowbite-react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 export default function PricingCard({
 	features,
@@ -20,7 +24,10 @@ export default function PricingCard({
 		getPackage,
 		optionPaymentPackage,
 		getOptionPaymentPackage,
+		payCheckout,
 	} = useStore(state => state);
+
+	const [isLoadingPay, setIsLoadingPay] = useState(false);
 
 	const [isPopupCheckoutOpen, setIsPopupCheckoutOpen] = useState(false);
 
@@ -33,6 +40,23 @@ export default function PricingCard({
 		getOptionPaymentPackage(packageToCheckout.id);
 
 		setIsLoading(false);
+	};
+
+	const handlePay = async () => {
+		setIsLoadingPay(true);
+
+		await payCheckout({
+			title: 'foo',
+			body: 'bar',
+			userId: 1,
+		});
+
+		setIsPopupCheckoutOpen(false);
+		setIsLoadingPay(false);
+
+		MySwal.fire({
+			title: 'Successfully pay package',
+		});
 	};
 
 	return (
@@ -79,9 +103,16 @@ export default function PricingCard({
 								Checkout {selectedPackage.title}
 							</Modal.Header>
 						)}
-						<Modal.Body className='bg-gray-50 pt-0'>
+						<Modal.Body
+							className={`bg-gray-50 pt-0 ${
+								isLoading ? 'text-center' : ''
+							}`}
+						>
 							{isLoading ? (
-								<Spinner aria-label='loading checkout' />
+								<Spinner
+									className='mt-6'
+									aria-label='loading checkout'
+								/>
 							) : (
 								<>
 									<div className='shadow rounded-lg border border-gray-200 mb-8'>
@@ -133,8 +164,11 @@ export default function PricingCard({
 									</div>
 
 									<Button
+										isProcessing={isLoadingPay}
+										disabled={isLoadingPay}
 										color='success'
 										className='mt-4 w-full'
+										onClick={handlePay}
 									>
 										Pay
 									</Button>

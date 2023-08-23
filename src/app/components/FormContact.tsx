@@ -23,7 +23,7 @@ const FormContact = () => {
 					required
 				/>
 			</div>
-			<button className='inline-flex  justify-center rounded-lg bg-cyan-600 px-3 py-2 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900'>
+			<button className='flex  justify-center rounded-lg bg-cyan-600 px-3 py-2 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900 mx-auto xl:mx-0'>
 				Send your message
 			</button>
 		</form>

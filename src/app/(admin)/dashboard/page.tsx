@@ -1,5 +1,3 @@
-'use client';
-
 const Dashboard = () => {
 	return (
 		<main className='py-3 px-5'>

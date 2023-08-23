@@ -66,7 +66,7 @@ export default function Home() {
 				</div>
 			</header>
 
-			<section className='h-screen pt-8' id='section-about'>
+			<section className='xl:h-screen pt-8' id='section-about'>
 				<div className='container 2xl:w-9/12 px-3'>
 					<HeadSection
 						label={`About ${process.env.NEXT_PUBLIC_APP_NAME}`}
@@ -76,10 +76,13 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className='h-screen pt-8' id='section-pricing'>
+			<section
+				className='xl:h-screen xl:pt-8 mb-4 xl:mb-0'
+				id='section-pricing'
+			>
 				<HeadSection label='Pricing' />
 
-				<div className='container px-3 2xl:w-9/12 grid grid-cols-3 gap-4'>
+				<div className='container px-3 2xl:w-9/12 grid grid-cols-1 lg:grid-cols-3 gap-4'>
 					{packageAvailables.map(packageAvailable => (
 						<PricingCard
 							id={packageAvailable.id}
@@ -96,14 +99,14 @@ export default function Home() {
 				<HeadSection label='Kontak' />
 
 				<div className='container px-3 2xl:w-9/12 grid grid-cols-12'>
-					<div className='relative w-full mb-5 col-span-5'>
+					<div className='relative w-full mb-5 col-span-12 xl:col-span-5 h-28 xl:h-auto'>
 						<Image
 							src='illustration/contact-us.svg'
 							alt='Contact us'
 							fill
 						/>
 					</div>
-					<div className='col-span-7'>
+					<div className='col-span-12 xl:col-span-7'>
 						<FormContact />
 					</div>
 				</div>

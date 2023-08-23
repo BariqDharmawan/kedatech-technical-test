@@ -1,8 +1,9 @@
-import {
+import type {
 	IPackageAvailable,
 	PaymentOptionPackage,
 } from '@/types/packageAvailableType';
-import axios from 'axios';
+import { IPayPackage, PayloadPayPackage } from '@/types/payPackageType';
+import axios, { AxiosResponse } from 'axios';
 import { create } from 'zustand';
 
 export interface IStore {
@@ -14,6 +15,7 @@ export interface IStore {
 	getOptionPaymentPackage: (
 		packageId: number
 	) => Promise<PaymentOptionPackage>;
+	payCheckout: (payload: PayloadPayPackage) => Promise<IPayPackage>;
 }
 
 export const useStore = create<IStore>(set => ({
@@ -40,6 +42,28 @@ export const useStore = create<IStore>(set => ({
 			);
 
 			set({ optionPaymentPackage: res.data });
+			return res.data;
+		} catch (error) {
+			throw error;
+		}
+	},
+	payCheckout: async ({
+		title,
+		body,
+		userId,
+	}: PayloadPayPackage): Promise<IPayPackage> => {
+		try {
+			const res = await axios.post<IPayPackage>(
+				'https://jsonplaceholder.typicode.com/posts',
+				{
+					title: title,
+					body: body,
+					userId: userId,
+				}
+			);
+			if (res.status !== 201) {
+				throw new Error(res.statusText);
+			}
 			return res.data;
 		} catch (error) {
 			throw error;

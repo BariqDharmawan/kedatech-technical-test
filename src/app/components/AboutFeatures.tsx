@@ -14,7 +14,7 @@ const AboutFeatures = ({
 			{aboutFeatures.map((feature, index) => (
 				<Card
 					key={`feature-${feature.id}`}
-					className='col-span-4 flex flex-col items-center'
+					className='col-span-6 lg:col-span-4 flex flex-col items-center'
 				>
 					<div className='h-24 relative mb-3'>
 						<Image

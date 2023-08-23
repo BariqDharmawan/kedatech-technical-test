@@ -93,10 +93,12 @@ export default async function Page() {
 			<h1 className='mb-4 text-xl font-bold'>
 				List of customer using business package
 			</h1>
-			<TableCustomer users={users.slice(6) /*dummy data*/} />
+			<TableCustomer users={users.slice(4, 8) /*dummy data*/} />
 			<TotalProfit
 				className='mt-4'
-				profit={Number(packageBusiness?.price) * users.slice(6).length}
+				profit={
+					Number(packageBusiness?.price) * users.slice(4, 8).length
+				}
 			/>
 		</main>
 	);

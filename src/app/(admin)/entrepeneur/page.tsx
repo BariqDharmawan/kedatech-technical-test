@@ -84,20 +84,21 @@ export default async function Page() {
 	const users: IUser[] = await getUser();
 
 	//dummy data
-	const packageBasic = packageAvailables.find(
-		packageAvailable => packageAvailable.id === 1
+	const packageBusiness = packageAvailables.find(
+		packageAvailable => packageAvailable.id === 3
 	);
 
 	return (
 		<main className='py-3 px-5'>
 			<h1 className='mb-4 text-xl font-bold'>
-				List of customer using basic package
+				List of customer using entrepeneur package
 			</h1>
-			<TableCustomer users={users.slice(0, 4) /*dummy data*/} />
-
+			<TableCustomer users={users.slice(8, 10) /*dummy data*/} />
 			<TotalProfit
 				className='mt-4'
-				profit={Number(packageBasic?.price) * users.slice(0, 4).length}
+				profit={
+					Number(packageBusiness?.price) * users.slice(8, 10).length
+				}
 			/>
 		</main>
 	);
