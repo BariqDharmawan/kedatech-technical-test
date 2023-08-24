@@ -53,15 +53,15 @@ export default function Home() {
 						/>
 					</div>
 					<HeadSection
-						label={process.env.NEXT_PUBLIC_APP_NAME!.toString()}
+						label={
+							process.env.NEXT_PUBLIC_APP_NAME?.toString() ?? ''
+						}
 						className='text-red-500'
 					/>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Voluptas, dolorum fugit? Reiciendis, amet veritatis?
-						Quia aliquam earum animi temporibus voluptatum possimus
-						quibusdam ad, sapiente quas nam reiciendis qui eius
-						nihil!
+						Kedatech ERP is a nemo nostrum sapiente quisquam nisi
+						commodi illo pariatur iusto esse, possimus hic, unde
+						alias in voluptatibus sit dolorum?
 					</p>
 				</div>
 			</header>
@@ -85,6 +85,7 @@ export default function Home() {
 				<div className='container px-3 2xl:w-9/12 grid grid-cols-1 lg:grid-cols-3 gap-4'>
 					{packageAvailables.map(packageAvailable => (
 						<PricingCard
+							dataTestId='pricing-card'
 							id={packageAvailable.id}
 							title={packageAvailable.title}
 							price={packageAvailable.price}

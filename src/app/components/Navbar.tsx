@@ -72,56 +72,54 @@ const Navbar = () => {
 					<button
 						className='text-blue-500'
 						onClick={() => setIsLoginOpen(true)}
+						data-testid='login-btn'
 					>
 						Login
 					</button>
 				</div>
 			</nav>
 
-			{isLoginOpen &&
-				createPortal(
-					<Modal
-						show={isLoginOpen}
-						onClose={() => setIsLoginOpen(false)}
-					>
-						<Modal.Header>Login to dashboard</Modal.Header>
-						<Modal.Body>
-							<form
-								method='POST'
-								onSubmit={(e: FormEvent) => handleLogin(e)}
+			{createPortal(
+				<Modal show={isLoginOpen} onClose={() => setIsLoginOpen(false)}>
+					<Modal.Header>Login to dashboard</Modal.Header>
+					<Modal.Body>
+						<form
+							method='POST'
+							onSubmit={(e: FormEvent) => handleLogin(e)}
+							data-testid='form-login'
+						>
+							<div className='mb-3'>
+								<InputIconLeft
+									icon={IconUser}
+									id='username'
+									label='Username'
+									placeholder='Fill username'
+									required
+								/>
+							</div>
+							<div className='mb-3'>
+								<InputIconLeft
+									icon={IconKey}
+									id='password'
+									type='password'
+									label='Password'
+									placeholder='Fill Password'
+									required
+								/>
+							</div>
+							<Button
+								isProcessing={isLoading}
+								type='submit'
+								className='inline-flex  justify-center rounded-lg bg-cyan-600 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900'
+								disabled={isLoading}
 							>
-								<div className='mb-3'>
-									<InputIconLeft
-										icon={IconUser}
-										id='username'
-										label='Username'
-										placeholder='Fill username'
-										required
-									/>
-								</div>
-								<div className='mb-3'>
-									<InputIconLeft
-										icon={IconKey}
-										id='password'
-										type='password'
-										label='Password'
-										placeholder='Fill Password'
-										required
-									/>
-								</div>
-								<Button
-									isProcessing={isLoading}
-									type='submit'
-									className='inline-flex  justify-center rounded-lg bg-cyan-600 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900'
-									disabled={isLoading}
-								>
-									Login
-								</Button>
-							</form>
-						</Modal.Body>
-					</Modal>,
-					document.body
-				)}
+								Login
+							</Button>
+						</form>
+					</Modal.Body>
+				</Modal>,
+				document.body
+			)}
 		</>
 	);
 };

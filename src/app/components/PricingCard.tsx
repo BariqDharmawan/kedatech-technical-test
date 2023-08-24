@@ -11,12 +11,17 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
+interface IPricingCard extends IPackageAvailable {
+	dataTestId?: string;
+}
+
 export default function PricingCard({
 	features,
 	title,
 	price,
 	id,
-}: IPackageAvailable) {
+	dataTestId,
+}: IPricingCard) {
 	const {
 		isLoading,
 		setIsLoading,
@@ -61,7 +66,7 @@ export default function PricingCard({
 
 	return (
 		<>
-			<Card>
+			<Card data-testid={dataTestId}>
 				<h5 className='mb-4 text-xl font-medium text-gray-500 dark:text-gray-400 capitalize'>
 					{title}
 				</h5>
